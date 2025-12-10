@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TranslationDao {
-    @Query("SELECT * FROM translations WHERE sourceText = :text AND :sourceLang = :sourceLang AND targetLang = :targetLang LIMIT 1")
+    @Query("SELECT * FROM translations WHERE sourceText = :text AND sourceLang = :sourceLang AND targetLang = :targetLang LIMIT 1")
     suspend fun getTranslation(text: String, sourceLang: String, targetLang: String): TranslationEntity?
 
     @Query("SELECT * FROM translations ORDER BY timestamp DESC")
